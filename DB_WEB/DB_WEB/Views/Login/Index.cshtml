@@ -1,0 +1,40 @@
+﻿@model Logins
+@{
+    string sAction = ViewContext.RouteData.Values["action"].ToString();
+    string sControll = ViewContext.RouteData.Values["Controller"].ToString();
+    ViewData["Title"] = "test";
+    //Layout = "null";
+}
+
+<div class="container">
+    <div class="login__card">
+        <div class="login__Form">
+            <h2 class="ctr__title">SQL Server - 登入 </h2>
+            <form  id="ajax-contact-form" class="form-horizontal" asp-controller="@sControll" asp-action="@sAction"  method="post" >
+                <div class="formBox">
+                    <div class="inutBox w50">
+                        <input asp-for="Sql_Code" required>
+                        <span>@Html.LabelFor(mode => mode.Sql_Code)</span>
+                    </div>
+                    <div class="inutBox w50">
+                        <input asp-for="DB_Code" required>
+                        <span>@Html.LabelFor(mode => mode.DB_Code)</span>
+                    </div>
+                    <div class="inutBox w50">
+                        <input  asp-for="usr_Code" required>
+                        <span>@Html.LabelFor(mode => mode.usr_Code)</span>
+                    </div>
+                    <div class="inutBox w50">
+                        <input asp-for="usr_password" required>
+                        <span>@Html.LabelFor(mode => mode.usr_password)</span>
+                    </div>
+
+                    <div class="inutBox w100">
+                        <input type="submit" name="btn_Send" value="Send">
+                        <input type="button" value="Create">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
